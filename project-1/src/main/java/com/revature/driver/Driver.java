@@ -17,12 +17,13 @@ public class Driver {
 
 	
 	public static void main(String[] args) {
-		initialValues();
+		//initialValues();
 		// run a selectAll statment from one of our Daos...like SuperPrisonDao
-		User u = new User("bssb","bsb");
+		User u = new User("wzwe","wwe");
 		UserDao ud = new UserDao();
 		ud.insert(u);
 		// close the Hibernate session here...
+		System.out.println("w");
 		HibernateUtil.closeSes();
 		
 	}
