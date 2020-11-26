@@ -1,30 +1,53 @@
 package com.revature.driver;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.dao.CrimeDao;
 import com.revature.dao.SuperPrisonDao;
 import com.revature.dao.SuperVillainDao;
-import com.revature.dao.UserDao;
-import com.revature.model.Crime;
-import com.revature.model.SuperPrisons;
-import com.revature.model.SuperVillain;
-import com.revature.model.User;
-import com.revature.util.HibernateUtil;
 
+import com.revature.model.*;
+import com.revature.util.*;
+import com.revature.dao.*;
+//import com.revature.model.User;
 public class Driver {
 
-	
+	private static UserRoleDAO urDao = new UserRoleDAO();
+	private static UserDAO ud = new UserDAO();
 	public static void main(String[] args) {
-		//initialValues();
+		initialValues();
+		test();
 		// run a selectAll statment from one of our Daos...like SuperPrisonDao
-		User u = new User("wzwe","wwe");
-		UserDao ud = new UserDao();
-		ud.insert(u);
-		// close the Hibernate session here...
-		System.out.println("w");
+//		String p1 = "e";
+//		String p2 = "f";
+//		try {
+//			p1 = Hashing.getHash("e");
+//			p2 = Hashing.getHash("f");
+//		} catch (NoSuchAlgorithmException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		UserRole r1 = urDao.getRoleById(1);
+//		UserRole r2 = urDao.getRoleById(2);
+//		
+//		User u1 = new User("e",p1, "e", "e", "e", r1);
+//		User u2 = new User("e", p2, "f", "f", "f", r2);
+//		
+//		ud.addUser(u1);
+//		ud.addUser(u2);
 		HibernateUtil.closeSes();
+		System.out.println("w");
+		
+	}
+	
+	public static void test() {
+		UserRole r1 = urDao.getRoleById(1);
+		UserRole r2 = urDao.getRoleById(2);
+		System.out.println(r1.getRole());
 		
 	}
 	

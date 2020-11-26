@@ -22,9 +22,15 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.4.3.Final</version>
+			<version>5.4.20.Final</version>
 		</dependency>
-
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+    		<groupId>org.hibernate.validator</groupId>
+    		<artifactId>hibernate-validator</artifactId>
+    		<version>6.1.5.Final</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
