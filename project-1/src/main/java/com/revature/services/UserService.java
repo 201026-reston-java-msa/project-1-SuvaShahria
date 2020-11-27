@@ -2,13 +2,16 @@ package com.revature.services;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import com.revature.dao.*;
 import com.revature.model.User;
 import com.revature.util.*;
 
 public class UserService {
 
-	//private static final Logger log = LogManager.getLogger(UserServices.class);
+	private static final Logger log = Logger.getLogger(RbService.class);
 	private static UserDAO uDao = new UserDAO();
 	
 	
@@ -38,29 +41,27 @@ public class UserService {
 		
 		return null;
 	}	
-
+	
+	public User getUserByUsername(String username) {
+		log.info("Getting User by name");
+		return uDao.getUserByUsername(username);
+	}
+	
 	public List<User> getAllUsers() {
-	//	log.info("Getting all Users");
+		log.info("Getting all Users");
 		return uDao.getAllUsers();
 	}
 	
 	public User getUserById(int id) {
-	//	log.info("Getting User with id "+id);
+		log.info("Getting User by id");
 		return uDao.getUserById(id);
 	}
 	
-	public User getUserByUsername(String username) {
-	//	log.info("Getting User by username "+username);
-		return uDao.getUserByUsername(username);
-	}
-	
 	public boolean addUser(User u) {
-		//log.info("Adding a new User "+u);
 		return uDao.addUser(u);
 	}
 	
 	public boolean updateUser(User u) {
-		//log.info("Updating User "+u);
 		return uDao.updateUser(u);
 	}	
 }

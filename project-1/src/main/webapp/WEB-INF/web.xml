@@ -15,5 +15,9 @@
     <url-pattern>/s</url-pattern>
     <url-pattern>/login</url-pattern>
     <url-pattern>/logout</url-pattern>
+    <url-pattern>/reimbursements</url-pattern>
+    <url-pattern>/bystatus/*</url-pattern>
+    <url-pattern>/byauthor/*</url-pattern>
+    <url-pattern>/update/*</url-pattern>
   </servlet-mapping>
 </web-app>

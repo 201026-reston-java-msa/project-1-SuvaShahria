@@ -62,6 +62,7 @@ import com.revature.util.HibernateUtil;
 	public List<Reimbursement> getAllReimbursementsByAuthor(User author) {
 		Session ses = HibernateUtil.getSession();
 		
+		
 		List<Reimbursement> list = ses.createQuery("FROM Reimbursement WHERE reimbAuthorId = "+author.getUserId(), Reimbursement.class).list();
 		
 		return list;

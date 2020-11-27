@@ -3,7 +3,7 @@ package com.revature.model;
 public class ReimbursementDTO {
 	
 	public int id;
-	public double amt;
+	public double amount;
 	public String description;
 	public int rAuthorId;
 	public int rResolverId;
@@ -16,7 +16,7 @@ public class ReimbursementDTO {
 
 	public ReimbursementDTO(double amt, String description, int rAuthorId, String rStatus, String rType) {
 		super();
-		this.amt = amt;
+		this.amount = amt;
 		this.description = description;
 		this.rAuthorId = rAuthorId;
 		this.rStatus = rStatus;
@@ -26,7 +26,7 @@ public class ReimbursementDTO {
 	public ReimbursementDTO(int id, double amt, String description, int rAuthorId, String rStatus, String rType) {
 		super();
 		this.id = id;
-		this.amt = amt;
+		this.amount = amt;
 		this.description = description;
 		this.rAuthorId = rAuthorId;
 		this.rStatus = rStatus;
@@ -37,7 +37,7 @@ public class ReimbursementDTO {
 			String rType) {
 		super();
 		this.id = id;
-		this.amt = amt;
+		this.amount = amt;
 		this.description = description;
 		this.rAuthorId = rAuthorId;
 		this.rResolverId = rResolverId;
@@ -53,12 +53,12 @@ public class ReimbursementDTO {
 		this.id = id;
 	}
 
-	public double getAmt() {
-		return amt;
+	public double getAmount() {
+		return amount;
 	}
 
-	public void setAmt(double amt) {
-		this.amt = amt;
+	public void setAmount(double amt) {
+		this.amount = amt;
 	}
 
 	public String getDescription() {
@@ -106,7 +106,7 @@ public class ReimbursementDTO {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(amt);
+		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
@@ -126,7 +126,7 @@ public class ReimbursementDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementDTO other = (ReimbursementDTO) obj;
-		if (Double.doubleToLongBits(amt) != Double.doubleToLongBits(other.amt))
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
 		if (description == null) {
 			if (other.description != null)
@@ -154,7 +154,7 @@ public class ReimbursementDTO {
 
 	@Override
 	public String toString() {
-		return "ReimbursementDTO [id=" + id + ", amt=" + amt + ", description=" + description + ", rAuthorId="
+		return "ReimbursementDTO [id=" + id + ", amt=" + amount + ", description=" + description + ", rAuthorId="
 				+ rAuthorId + ", rResolverId=" + rResolverId + ", rStatus=" + rStatus + ", rType=" + rType + "]";
 	}
 }

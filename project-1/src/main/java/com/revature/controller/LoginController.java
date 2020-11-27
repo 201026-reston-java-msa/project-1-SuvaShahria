@@ -41,10 +41,15 @@ public class LoginController {
 			//System.out.println(u2);
 			HttpSession ses = req.getSession();
 			ses.setAttribute("user", u2);
-			ses.setAttribute("userId", u2.getUserId());
-			ses.setAttribute("roleId", u2.getUserRoleId());
+			ses.setAttribute("userid", u2.getUserId());
+			ses.setAttribute("roleid", u2.getUserRoleId());
 			ses.setAttribute("username", u2.getUserName());
-			res.setStatus(200);
+			if(u2.getUserRoleId().getRoleId()  == 1) {
+				res.setStatus(201);
+			}else {
+				res.setStatus(202);
+			}
+			
 			res.getWriter().println("Logged In");
 			System.out.println("logged in");
 		}else {
@@ -94,7 +99,7 @@ public class LoginController {
 	    	JsonObject json2 = new Gson().fromJson(jb.toString(), JsonObject.class);
 	    	response.getWriter().println(json2);
 		} else {
-			response.setStatus(400);
+			response.setStatus(200);
 			String message = "{ \"message\": \"There was no user logged into the session\" }";
 	    	JsonObject json2 = new Gson().fromJson(message, JsonObject.class);
 	    	response.getWriter().println(json2);
