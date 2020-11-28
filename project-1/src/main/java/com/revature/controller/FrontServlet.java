@@ -48,7 +48,8 @@ public class FrontServlet extends HttpServlet {
 
 		entry(request, response);
 		// request.getRequestDispatcher("test.html").forward(request, response);
-		// response.setStatus(200);
+		//System.out.println("in post");
+//		 response.setStatus(200);
 	}
 
 	protected void entry(HttpServletRequest request, HttpServletResponse response)
@@ -69,6 +70,7 @@ public class FrontServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("test.html");
 			rd.forward(request, response);
 			System.out.println("s");
+			break;
 		case "reimbursements":
 			if (request.getMethod().equals("GET")) {
 				rb.getAllReimbursements(request, response);
@@ -76,6 +78,7 @@ public class FrontServlet extends HttpServlet {
 			} else {
 				rb.addReimbursement(request, response);
 			}
+			break;
 		case "bystatus":
 //			for(String i: split) {
 //				System.out.println(i);

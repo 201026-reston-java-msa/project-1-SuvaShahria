@@ -19,7 +19,9 @@ public class LoginController {
 	private static UserService us = new UserService();
 	private static ObjectMapper om = new ObjectMapper();
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
-	
+		res.setStatus(500);
+		
+		System.out.println("in login");
 		// TODO Auto-generated method stub
 		BufferedReader reader = req.getReader();
 		
@@ -33,10 +35,16 @@ public class LoginController {
 		}
 		
 		String body = new String(sb);
-		
+		System.out.println(sb);
 		
 		User u = om.readValue(body, User.class);
-		User u2 = us.login(u);
+		User u2 = null;
+		try{
+			u2 = us.login(u);
+		}catch(Exception e) {
+			
+		}
+	//	System.out.println(u2.getUserRoleId().getRoleId());
 		if(u2!= null) {
 			//System.out.println(u2);
 			HttpSession ses = req.getSession();
@@ -46,7 +54,9 @@ public class LoginController {
 			ses.setAttribute("username", u2.getUserName());
 			if(u2.getUserRoleId().getRoleId()  == 1) {
 				res.setStatus(201);
+				//System.out.println("201");
 			}else {
+				System.out.println("202");
 				res.setStatus(202);
 			}
 			
@@ -57,7 +67,8 @@ public class LoginController {
 	    	JsonObject json2 = new Gson().fromJson(message, JsonObject.class);
 	    	res.getWriter().println(json2);
 	    	HttpSession s = req.getSession(false);
-	    	res.setStatus(400);
+	    	res.setStatus(204);
+	    	System.out.println("204");
 			if (s != null) {
 				
 				s.invalidate();
@@ -65,20 +76,7 @@ public class LoginController {
 			System.out.println("oh no");
 		}
 		
-//		if(ls.login(u)) {
-//			HttpSession sess = req.getSession();
-//			sess.setAttribute("user", u);
-//			sess.setAttribute("loggedin", true);
-//			res.setStatus(200);
-//			res.getWriter().println("Successfully Login");
-//		} else {
-//			HttpSession sess = req.getSession(false);
-//			if (sess != null) {
-//				sess.invalidate();
-//			}
-//			res.setStatus(401);
-//			res.getWriter().println("Login Failed");
-//		}		
+	
 		
 		
 	}

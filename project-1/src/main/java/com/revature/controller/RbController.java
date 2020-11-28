@@ -101,6 +101,7 @@ public class RbController {
 		}
 		
 		String body = new String(sb);
+		System.out.println(body);
 		
 		ReimbursementDTO rbt = om.readValue(body, ReimbursementDTO.class);
 		//System.out.println(rbt);
