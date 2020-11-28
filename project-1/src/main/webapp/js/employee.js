@@ -1,3 +1,38 @@
+function getR(){
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+         if(this.readyState ===4 && this.status ===200){
+			var ans = JSON.parse(this.responseText);
+			document.getElementById("viewDiv").innerHTML = JSON.stringify(ans);
+		}else{
+			document.getElementById("viewDiv").innerHTML = "Unexpected Error"
+		}
+    }
+		xhr.open("POST","http://localhost:8080/project-1/byauthor")
+        xhr.send()
+}
+function updateInfo(){
+    let userN = document.getElementById("updateUsername").value;
+    let email = document.getElementById("updateEmail").value;
+    let template = {
+        userName: userN,
+        email: email
+    }
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+        if(this.readyState ===4 && this.status ===200){
+			var div = document.getElementById('div2');
+			div.innerHTML = "User Updated";
+        }else{
+			var div = document.getElementById('div2');
+			div.innerHTML = "Error";
+	
+		}
+    }
+
+    xhr.open("POST","http://localhost:8080/project-1/user")
+    xhr.send(JSON.stringify(template))
+}
 function viewInfo(){
     let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function(){

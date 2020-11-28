@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.controller.*;
 
@@ -50,7 +51,7 @@ public class FrontServlet extends HttpServlet {
 		entry(request, response);
 		// request.getRequestDispatcher("test.html").forward(request, response);
 		//System.out.println("in post");
-//		 response.setStatus(200);
+		// response.setStatus(200);
 	}
 
 	protected void entry(HttpServletRequest request, HttpServletResponse response)
@@ -65,6 +66,8 @@ public class FrontServlet extends HttpServlet {
 		case "user":
 			if (request.getMethod().equals("GET")) {
 				us.getUser(request,response);
+			}else {
+				us.updateUser(request,response);
 			}
 			break;
 		case "login":
@@ -96,7 +99,17 @@ public class FrontServlet extends HttpServlet {
 			rb.getAllReimbursementsByStatus(response, rsId);
 			break;
 		case "byauthor":
-			int raId = Integer.parseInt(split[1]);
+			System.out.println("byauthor");
+			int raId;
+			try {
+				raId = Integer.parseInt(split[1]);
+			}catch(Exception e) {
+				System.out.println("author -e");
+				HttpSession ses = request.getSession(false);
+				raId = (int)ses.getAttribute("userid");
+			}
+			System.out.println(raId);
+			
 			rb.getAllReimbursementsByAuthor(response, raId);
 			break;
 		case "update":
