@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,26 @@ public class RbController {
 	private static ObjectMapper om = new ObjectMapper();
 
 	
-	public void getAllReimbursementsByAuthor(HttpServletResponse res, int Id) throws IOException {
-		
+	public void getAllReimbursementsByAuthor(HttpServletResponse res, HttpServletRequest request, int Id) throws IOException {
+		if(request.getMethod().equals("POST")) {
+			System.out.println("rb post");
+			BufferedReader reader = request.getReader();
+			
+			StringBuilder sb = new StringBuilder();
+			
+			String line = reader.readLine();
+			
+			while(line != null) {
+				sb.append(line);
+				line = reader.readLine();
+			}
+			
+			String body = new String(sb);
+			//System.out.println(body);
+			ReimbursementDTO rbt = om.readValue(body, ReimbursementDTO.class);
+			Id = rbt.getId();
+			//System.out.println(Id);
+		}
 		User u = us.getUserById(Id);
 		List<Reimbursement> r = null;
 		try {
@@ -192,5 +211,42 @@ public class RbController {
 		} else {
 			res.setStatus(400);
 		}	
+	}
+
+
+	public void viewPend(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("in view pend");
+		List<Reimbursement> r = rs.getAllReimb();
+		List<Reimbursement> r2 = new LinkedList<Reimbursement>();;
+		
+		for(Reimbursement tmp: r) {
+			if(tmp.getReimbStatusId().getStatusId()==1) {
+				r2.add(tmp);
+			}
+		}
+		
+		response.setStatus(200);
+		String json = om.writeValueAsString(r2);
+		response.getWriter().println(json);
+		
+	}
+	
+	public void viewAppr(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("in view pend");
+		List<Reimbursement> r = rs.getAllReimb();
+		List<Reimbursement> r2 = new LinkedList<Reimbursement>();;
+		
+		for(Reimbursement tmp: r) {
+			if(tmp.getReimbStatusId().getStatusId()==2) {
+				r2.add(tmp);
+			}
+		}
+		
+		response.setStatus(200);
+		String json = om.writeValueAsString(r2);
+		response.getWriter().println(json);
+		
 	}
 }

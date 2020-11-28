@@ -8,7 +8,7 @@ function getR(){
 			document.getElementById("viewDiv").innerHTML = "Unexpected Error"
 		}
     }
-		xhr.open("POST","http://localhost:8080/project-1/byauthor")
+		xhr.open("GET","http://localhost:8080/project-1/byauthor")
         xhr.send()
 }
 function updateInfo(){

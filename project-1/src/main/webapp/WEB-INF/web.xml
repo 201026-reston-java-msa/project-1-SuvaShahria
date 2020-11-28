@@ -20,5 +20,8 @@
     <url-pattern>/byauthor/*</url-pattern>
     <url-pattern>/update/*</url-pattern>
     <url-pattern>/user</url-pattern>
+    <url-pattern>/viewEmp</url-pattern>
+    <url-pattern>/viewPend</url-pattern>
+    <url-pattern>/viewAppr</url-pattern>
   </servlet-mapping>
 </web-app>

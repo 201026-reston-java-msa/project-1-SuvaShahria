@@ -1,12 +1,15 @@
 package com.revature.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.model.Reimbursement;
 import com.revature.model.ReimbursementDTO;
 import com.revature.model.User;
 import com.revature.services.UserService;
@@ -70,6 +73,16 @@ public class UserController {
 		} else {
 			response.setStatus(400);
 		}
+	}
+
+	public void getAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("in getAll");
+		List<User> u = us.getAllUsers();
+		response.setStatus(200);
+		String json = om.writeValueAsString(u);
+		response.getWriter().println(json);
+		
 	}
 
 }

@@ -75,10 +75,14 @@ public class FrontServlet extends HttpServlet {
 			break;
 		case "logout":
 			lc.logout(request, response);
-		case "s":
-			RequestDispatcher rd = request.getRequestDispatcher("test.html");
-			rd.forward(request, response);
-			System.out.println("s");
+		case "viewEmp":
+			us.getAll(request,response);
+			break;
+		case "viewPend":
+			rb.viewPend(request,response);
+			break;
+		case "viewAppr":
+			rb.viewAppr(request,response);
 			break;
 		case "reimbursements":
 			if (request.getMethod().equals("GET")) {
@@ -110,7 +114,7 @@ public class FrontServlet extends HttpServlet {
 			}
 			System.out.println(raId);
 			
-			rb.getAllReimbursementsByAuthor(response, raId);
+			rb.getAllReimbursementsByAuthor(response,request, raId);
 			break;
 		case "update":
 			rb.updateReimbStatus(request, response);
