@@ -10,6 +10,7 @@ function viewByA(){
             var myArr = JSON.parse(this.responseText);
 			
         document.getElementById("viewDiv").innerHTML = JSON.stringify(myArr);
+		document.getElementById("json").textContent = JSON.stringify(myArr, undefined, 2);
         }
     }
     var v = "http://localhost:8080/project-1/byauthor"+id;
