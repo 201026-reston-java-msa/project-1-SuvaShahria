@@ -83,9 +83,10 @@ public class LoginController {
 	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		HttpSession ses = request.getSession(false);
-		
+		//System.out.println("In logout");
 		
 		if (ses != null) {
+			//System.out.println("In session logout");
 			String username = (String) ses.getAttribute("username");
 			ses.invalidate();
 			response.setStatus(200);
@@ -95,12 +96,12 @@ public class LoginController {
 			jb.append(username);
 			jb.append("\" }");
 	    	JsonObject json2 = new Gson().fromJson(jb.toString(), JsonObject.class);
-	    	response.getWriter().println(json2);
+	    	//response.getWriter().println(json2);
 		} else {
 			response.setStatus(200);
 			String message = "{ \"message\": \"There was no user logged into the session\" }";
 	    	JsonObject json2 = new Gson().fromJson(message, JsonObject.class);
-	    	response.getWriter().println(json2);
+	    	//response.getWriter().println(json2);
 		}
 		
 	}

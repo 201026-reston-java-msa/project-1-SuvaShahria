@@ -12,6 +12,11 @@
    
 
     </style>
+    <style>
+        #gif{
+          visibility: hidden;
+        }
+        </style>
   </head>
   <body>
     <div class="container">
@@ -31,17 +36,42 @@
 
         		<li class="nav-item">
         			<a href="#logout" class="nav-link" role="tab" data-toggle="tab">Logout</a>
+                </li>
+                
+                <li class="nav-item">
+        			<a href="#view" class="nav-link" role="tab" data-toggle="tab">View</a>
         		</li>
 
-        		<li class="nav-item">
-        			<a href="#" class="nav-link disabled">Disabled</a>
-        		</li>
+        	
         	</ul>
 
         	<div class="tab-content">
         		<div role="tabpanel" class="tab-pane fade in active" id="home">
                     
                 </div>
+                <!-----------------View------------------>
+                <div role="tabpanel" class="tab-pane fade in active" id="view">
+                    <form  onSubmit="viewInfo(event.preventDefault())">
+                        <input
+                            id="ubtn" class="btn btn-primary" type="submit" value="View Personal Info">
+                    </form>
+                    <div id = "viewDiv">
+	
+                    </div>
+
+                </div>
+                 <!-----------------View------------------>
+
+                <!-- Logout --------------------->
+                <div role="tabpanel" class="tab-pane fade in active" id="logout">
+                    <form  onSubmit="logout(event.preventDefault())">
+                        <input
+                            id="pbtn" class="btn btn-primary" type="submit" value="Log Out">
+                    </form>
+                </div>
+                <!-- Logout --------------------->  
+
+                <!-- --------------------------------rb--------------------->
         		<div role="tabpanel" class="tab-pane fade" id="rb">
                     <form  onSubmit="submitR(event.preventDefault())">
                         <div class="form-group">
@@ -93,11 +123,9 @@
 	
 					</div>
                 </div>
-        		<div role="tabpanel" class="tab-pane fade" id="logout">
+                <!-- --------------------------------rb--------------------->
 
-                    logout
-
-                </div>
+               
         	</div>
         </div>
       </div>
@@ -107,6 +135,13 @@
 
         
     </div>
+
+    <div id="div2"  >
+        <img src="img/giphy.gif" id = "gif"  >
+        <br>
+        
+        
+        </div>
 
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

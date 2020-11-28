@@ -18,6 +18,7 @@ public class FrontServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static LoginController lc = new LoginController();
 	private static RbController rb = new RbController();
+	private static UserController us = new UserController();
 
 	/**
 	 * Default constructor.
@@ -61,6 +62,11 @@ public class FrontServlet extends HttpServlet {
 
 		// System.out.println(split[0]);
 		switch (split[0]) {
+		case "user":
+			if (request.getMethod().equals("GET")) {
+				us.getUser(request,response);
+			}
+			break;
 		case "login":
 			lc.login(request, response);
 			break;

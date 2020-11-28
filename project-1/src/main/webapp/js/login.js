@@ -1,12 +1,3 @@
-function sleep(t){
-	
-	
-	const tmp = Date.now();
-	let tmp2 = null;
-	do{
-		tmp2 = Date.now();
-	}while(tmp2 - tmp < t);
-}
 
 function Login()
 {
@@ -29,8 +20,6 @@ function Login()
         if(this.readyState === 4 && this.status === 201)
         {
             
-            sleep(2000);
-           
            
             
             window.location = "http://localhost:8080/project-1/Employee.html"
@@ -40,7 +29,6 @@ function Login()
 		if(this.readyState === 4 && this.status === 202)
         {
             
-            sleep(2000);
            
            
             window.location = "http://localhost:8080/project-1/Manager.html"

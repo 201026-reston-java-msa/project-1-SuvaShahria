@@ -1,3 +1,36 @@
+function viewInfo(){
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+        if(this.readyState ===4 && this.status ===200){
+            
+            var myArr = JSON.parse(this.responseText);
+			var out = "Username: "+ myArr.userName+ '<br>'
+			+ "First Name: "+myArr.firstName+ '<br>'
+            + "Last Name: "+myArr.lastName+ '<br>'
+			+ "email: "+myArr.email+ '<br>'
+    document.getElementById("viewDiv").innerHTML = out;
+        }
+        
+    }
+    xhr.open("GET","http://localhost:8080/project-1/user")
+	xhr.send()
+
+}
+function logout(){
+    let xhr = new XMLHttpRequest()
+	let loginTemplate = {
+	
+}
+    xhr.onreadystatechange = function(){
+        if(this.readyState ===4 && this.status ===200){
+            window.location = "http://localhost:8080/project-1/index.html"
+        }
+        
+    }
+
+    xhr.open("POST","http://localhost:8080/project-1/logout")
+	xhr.send()
+}
 function submitR(){
     let amount = document.getElementById("amount").value;
     let desc = document.getElementById("desc").value;
