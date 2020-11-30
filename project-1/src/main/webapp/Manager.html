@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Manager Page</title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+   
+
+    </style>
+    <style>
+        #gif{
+          visibility: hidden;
+        }
+        </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        	<br />
+        	
+        	<ul class="nav nav-tabs">
+        		<li class="nav-item">
+        			<a href="#home" class="nav-link active" role="tab" data-toggle="tab">Welcome</a>
+                </li>
+                <li class="nav-item">
+        			<a href="#view" class="nav-link" role="tab" data-toggle="tab">View</a>
+                </li>
+        		<li class="nav-item">
+        			<a href="#logout" class="nav-link" role="tab" data-toggle="tab">Logout</a>
+                </li>
+                
+                
+
+        	
+        	</ul>
+
+        	<div class="tab-content">
+        		<div role="tabpanel" class="tab-pane fade in active" id="home">
+                    
+                </div>
+                
+                <!------------------ View --------------------->
+                <div role="tabpanel" class="tab-pane fade in active" id="view">
+                    <form  onSubmit="viewEmp(event.preventDefault())">
+                        <input
+                            id="pbtn" class="btn btn-primary" type="submit" value="View Employees">
+                    </form>
+
+                    <form  onSubmit="viewPend(event.preventDefault())">
+                        <input
+                            id="pbtn" class="btn btn-primary" type="submit" value="View Pending">
+                    </form>
+
+                    <form  onSubmit="viewAppr(event.preventDefault())">
+                        <input
+                            id="pbtn" class="btn btn-primary" type="submit" value="View Approved">
+                    </form>
+
+                    <form onSubmit="viewByA(event.preventDefault())">
+                        <div class="form-group" >
+                          <label for="eid">Search by Employee</label>
+                          <input type="text" class="form-control" id="eid" aria-describedby="Help" placeholder="Employee id">
+                          
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+
+                    <div id = "viewDiv">
+	
+                    </div>
+                    
+                    <pre id="json"></pre>
+                </div>
+                 <!-- --------------View --------------------->
+                <!-- Logout --------------------->
+                <div role="tabpanel" class="tab-pane fade in active" id="logout">
+                    <form  onSubmit="logout(event.preventDefault())">
+                        <input
+                            id="pbtn" class="btn btn-primary" type="submit" value="Log Out">
+                    </form>
+                </div>
+                <!-- Logout --------------------->  
+
+                
+
+               
+        	</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+
+        
+    </div>
+
+    <div id="div2"  >
+        <img src="img/giphy.gif" id = "gif"  >
+        <br>
+        
+        
+        </div>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="js/manager.js"></script>
+  </body>
+</html>
