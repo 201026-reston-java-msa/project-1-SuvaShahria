@@ -12,6 +12,29 @@
 
    
 
+  
+    <style>
+   
+body {
+
+    line-height: 200%;
+    
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    
+}
+#particles-js{
+	 padding: 0;
+    margin: 0;
+    background-color:  #cb2c65 ;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -100;
+
+}
+
+    
     </style>
     <style>
         #gif{
@@ -20,6 +43,7 @@
         </style>
   </head>
   <body>
+   <div id = "particles-js"> </div>
     <div class="container">
       <div class="row">
 
@@ -53,17 +77,18 @@
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Employees">
                     </form>
-
+					 <br>
                     <form  onSubmit="viewPend(event.preventDefault())">
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Pending">
                     </form>
+                    <br>
 
                     <form  onSubmit="viewAppr(event.preventDefault())">
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Approved">
                     </form>
-
+					 <br>
                     <form onSubmit="viewByA(event.preventDefault())">
                         <div class="form-group" >
                           <label for="eid">Search by Employee</label>
@@ -112,5 +137,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
     <script src="js/manager.js"></script>
+      <script type = "text/javascript" src = "js/particles.js"></script>
+    <script type = "text/javascript" src = "js/app3.js"></script>
   </body>
 </html>
