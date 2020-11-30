@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+body {
+  
+   
+    
+    
+    font-size: 24px;
+    line-height: 200%;
+    
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+#particles-js{
+	 padding: 0;
+    margin: 0;
+    background-color:  #efeee7;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -100;
+
+}
