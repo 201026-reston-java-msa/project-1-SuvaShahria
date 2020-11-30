@@ -1,3 +1,7 @@
+function appear(){
+    document.getElementById('gif').style.visibility = 'hidden';
+}
+
 function getR(){
     let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function(){
@@ -67,6 +71,7 @@ function logout(){
 	xhr.send()
 }
 function submitR(){
+    document.getElementById('gif').style.visibility = 'visible';
     let amount = document.getElementById("amount").value;
     let desc = document.getElementById("desc").value;
     const rTypes = document.querySelectorAll('input[name="gridRadios"]');
