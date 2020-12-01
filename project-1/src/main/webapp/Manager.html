@@ -10,10 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 
-   
-
-  
-    <style>
+   <style>
    
 body {
 
@@ -36,6 +33,8 @@ body {
 
     
     </style>
+
+    
     <style>
         #gif{
           visibility: hidden;
@@ -44,7 +43,7 @@ body {
   </head>
   <body>
    <div id = "particles-js"> </div>
-    <div class="container">
+    <div   class="container">
       <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -52,43 +51,72 @@ body {
         	
         	<ul class="nav nav-tabs">
         		<li class="nav-item">
-        			<a href="#home" class="nav-link active" role="tab" data-toggle="tab">Welcome</a>
-                </li>
-                <li class="nav-item">
-        			<a href="#view" class="nav-link" role="tab" data-toggle="tab">View</a>
-                </li>
-        		<li class="nav-item">
-        			<a href="#logout" class="nav-link" role="tab" data-toggle="tab">Logout</a>
-                </li>
-                
-                
+        			<a href="#home"  class="nav-link active" role="tab" data-toggle="tab">Welcome</a>
+        		</li>
 
+                <li class="nav-item">
+        			<a href="#view" class="nav-link"  role="tab" data-toggle="tab">View</a>
+        		</li>
+
+                <li class="nav-item">
+        			<a href="#update" class="nav-link" role="tab" data-toggle="tab">Update</a>
+                </li>
+                
+        		<li class="nav-item">
+        			<a href="#logout" class="nav-link"  role="tab" data-toggle="tab">Logout</a>
+                </li>
+                
         	
         	</ul>
 
         	<div class="tab-content">
-        		<div role="tabpanel" class="tab-pane fade in active" id="home">
+        		<div role="tabpanel"  class="tab-pane fade in active" id="home">
                     
                 </div>
-                
-                <!------------------ View --------------------->
+                <!----------------------Update-------------------->
+                <div role="tabpanel" class="tab-pane fade in active" id="update">
+                    <form onSubmit="approve(event.preventDefault())">
+                        <div class="form-group">
+                          <label for="upid">Approve Reimbursement</label>
+                          <input type="text" class="form-control" id="upid" aria-describedby="Help" placeholder="Enter Id">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Update</button>
+                      </form>
+                      <br>
+                      
+                      <form onSubmit="deny(event.preventDefault())">
+                        <div class="form-group">
+                          <label for="did">Deny Reimbursement</label>
+                          <input type="text" class="form-control" id="did" aria-describedby="Help" placeholder="Enter Id">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Update</button>
+                      </form>
+                      
+                      
+                  <div id = "updateDiv"> </div>
+                </div>
+
+                <!-----------------View------------------>
                 <div role="tabpanel" class="tab-pane fade in active" id="view">
                     <form  onSubmit="viewEmp(event.preventDefault())">
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Employees">
                     </form>
-					 <br>
+                    <br>
+
                     <form  onSubmit="viewPend(event.preventDefault())">
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Pending">
                     </form>
-                    <br>
-
+					 <br>
                     <form  onSubmit="viewAppr(event.preventDefault())">
                         <input
                             id="pbtn" class="btn btn-primary" type="submit" value="View Approved">
                     </form>
-					 <br>
+                     <br>
+
                     <form onSubmit="viewByA(event.preventDefault())">
                         <div class="form-group" >
                           <label for="eid">Search by Employee</label>
@@ -96,14 +124,14 @@ body {
                           
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
-
+					 <br>
                     <div id = "viewDiv">
 	
                     </div>
-                    
-                    <pre id="json"></pre>
+
                 </div>
-                 <!-- --------------View --------------------->
+                 <!-----------------View------------------>
+
                 <!-- Logout --------------------->
                 <div role="tabpanel" class="tab-pane fade in active" id="logout">
                     <form  onSubmit="logout(event.preventDefault())">
@@ -113,9 +141,9 @@ body {
                 </div>
                 <!-- Logout --------------------->  
 
-                
-
                
+
+      
         	</div>
         </div>
       </div>
@@ -127,7 +155,7 @@ body {
     </div>
 
     <div id="div2"  >
-        <img src="img/giphy.gif" id = "gif"  >
+        <img src="img/money.gif" id = "gif"  >
         <br>
         
         
@@ -137,7 +165,7 @@ body {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
     <script src="js/manager.js"></script>
-      <script type = "text/javascript" src = "js/particles.js"></script>
+    <script type = "text/javascript" src = "js/particles.js"></script>
     <script type = "text/javascript" src = "js/app3.js"></script>
   </body>
 </html>

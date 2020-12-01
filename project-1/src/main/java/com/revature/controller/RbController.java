@@ -162,7 +162,8 @@ public class RbController {
 	}
 	
 	
-	public void updateReimbStatus (HttpServletRequest req, HttpServletResponse res) throws IOException {
+	public void updateReimbStatus (HttpServletRequest req, HttpServletResponse res, String app) throws IOException {
+		System.out.println(app);
 		
 		BufferedReader reader = req.getReader();
 		
@@ -180,10 +181,12 @@ public class RbController {
 		ReimbursementDTO rdt = om.readValue(body, ReimbursementDTO.class);
 		
 		int rId = rdt.getId();
-		
+
+		System.out.println(rId);
 		Reimbursement r = rs.getById(rId);
 		
-		String status = rdt.getrStatus();
+		String status = app;
+		
 		
 		ReimbursementStatus rStatus = null;
 		if (status.equalsIgnoreCase("APPROVED")) {
@@ -204,7 +207,7 @@ public class RbController {
 		User resolver = us.getUserById((int)ses.getAttribute("userid"));
 		r.setReimbResolverId(resolver);
 		r.setResolved(new Timestamp(System.currentTimeMillis()));
-		
+		System.out.println(r);
 		if (rs.updateReimb(r)) {
 			res.setStatus(200);
 			res.getWriter().println("Reimbursement Status Updated");

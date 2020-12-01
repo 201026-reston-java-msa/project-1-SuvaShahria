@@ -117,7 +117,13 @@ public class FrontServlet extends HttpServlet {
 			rb.getAllReimbursementsByAuthor(response,request, raId);
 			break;
 		case "update":
-			rb.updateReimbStatus(request, response);
+			raId = Integer.parseInt(split[1]);
+			if(raId ==1) {
+				rb.updateReimbStatus(request, response,"approved");
+			}else {
+				rb.updateReimbStatus(request, response,"denied");
+			}
+			
 			break;
 		default:
 			break;

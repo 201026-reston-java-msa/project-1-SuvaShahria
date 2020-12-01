@@ -22,7 +22,7 @@ public class UserDAO {
 			ses.save(u);
 			return true;
 		} catch (HibernateException e) {
-			e.printStackTrace();
+			
 			return false;
 		} finally {
 			HibernateUtil.closeSes();
@@ -39,8 +39,7 @@ public class UserDAO {
 			t.commit();
 			return true;
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			t.rollback();
+			
 			return false;
 		} finally {
 			HibernateUtil.closeSes();
