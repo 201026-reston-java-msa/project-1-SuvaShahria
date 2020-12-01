@@ -9,7 +9,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -43,6 +43,7 @@ public class tests {
 	private static UserService us = new UserService();
 	private static RbService rus = new RbService();
 	private static int id1;
+	private static int rid;
 
 	@Test
 	public void test() {
@@ -132,12 +133,63 @@ public class tests {
 		User u = new User();
 		u.setUserName("te2");
 		u.setPassWord("te2");
-		if(us.login(u)==null) {
+		try {
+			if(us.login(u)==null) {
+				assert(true);
+			}else {
+				assert(false);
+			
+			}
+			
+		}catch(Exception e) {
+			assert(true);
+		}
+		
+	}
+	
+	@Test
+	public void f_addRb() {
+		User rAuthor = us.getUserById(id1);
+		ReimbursementStatus nrs = new ReimbursementStatus(1, "PENDING");
+		ReimbursementType rtype = new ReimbursementType(1, "Food");
+		Reimbursement r = new Reimbursement(15, new Timestamp(System.currentTimeMillis()), null, "test", rAuthor, null, nrs, rtype);
+		if(rus.addReimb(r)) {
 			assert(true);
 		}else {
 			assert(false);
-		
 		}
+	}
+	
+	@Test
+	public void h_finaAllR() {
+		List<Reimbursement> r = new ArrayList<Reimbursement>();
+		r = rus.getAllReimb();
+		if(r==null) {
+			assert(false);
+		}
+		assert(true);
+	}
+	
+	@Test
+	public void i_findByStatus() {
+		ReimbursementStatus nrs = new ReimbursementStatus(1, "PENDING");
+		List<Reimbursement> r = new ArrayList<Reimbursement>();
+		r = rus.getAllByStatus(nrs);
+		if(r==null) {
+			assert(false);
+		}
+		assert(true);
+	}
+	
+	@Test
+	public void j_findByAuthor() {
+		User u = us.getUserById(id1);
+		List<Reimbursement> r = new ArrayList<Reimbursement>();
+		r = rus.getAllByAuthor(u);
+		if(r==null) {
+			assert(false);
+		}
+		assert(true);
 	}
 
 }
