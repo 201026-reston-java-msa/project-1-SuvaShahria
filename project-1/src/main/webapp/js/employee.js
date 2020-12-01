@@ -1,5 +1,7 @@
 function appear(){
     document.getElementById('gif').style.visibility = 'hidden';
+    var div = document.getElementById('div2');
+	div.innerHTML = "";
 }
 
 function getR(){
@@ -103,7 +105,7 @@ function submitR(){
         }else{
 		
 			 var div = document.getElementById('div2');
-			div.innerHTML = "Unexpected Error - Check inputs";
+			
 		
 		}
 	
