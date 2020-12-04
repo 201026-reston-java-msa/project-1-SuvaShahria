@@ -31,8 +31,8 @@
 
 
 
-** Particle **
-![](./imgs/video.mp4)
+**Particle** 
+![](./imgs/video.gif)
 
 
 **State-chart Diagram (Reimbursement Statuses)** 
