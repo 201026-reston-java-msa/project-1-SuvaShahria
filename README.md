@@ -9,9 +9,9 @@ Particle.js was used to make an interactive background.
 ![](./imgs/video.gif)
 
 ### Example pages
-![](./imgs/view2.gif)
+![](./imgs/view2.png)
 <br />
-![](./imgs/view3.gif)
+![](./imgs/view3.png)
 
 
 ## Executive Summary
