@@ -1,5 +1,19 @@
 # Project-1: Employee Reimbursment System (ERS)
 
+
+## Front End
+The front end was made using html,css, javascript and particle.js
+Particle.js was used to make an interactive background.
+**Particle.js** 
+
+![](./imgs/video.gif)
+
+### Example pages
+![](./imgs/view2.gif)
+<br />
+![](./imgs/view3.gif)
+
+
 ## Executive Summary
 * The Expense Reimbursement System (ERS) will manage the process of reimbursing employees for expenses incurred while on company time. 
 * All employees in the company can login and submit requests for reimbursement and view their past tickets and pending requests. 
@@ -11,12 +25,10 @@
 - An Employee can view the Employee Homepage
 - An Employee can logout
 - An Employee can submit a reimbursement request
-- An Employee can upload an image of his/her receipt as part of the reimbursement request (extra credit)
 - An Employee can view their pending reimbursement requests
 - An Employee can view their resolved reimbursement requests
 - An Employee can view their information
 - An Employee can update their information
-- An Employee receives an email when one of their reimbursement requests is resolved (optional)
 
 #### Manager User Stories
 - A Manager can login
@@ -24,15 +36,10 @@
 - A Manager can logout
 - A Manager can approve/deny pending reimbursement requests
 - A Manager can view all pending requests from all employees
-- A Manager can view images of the receipts from reimbursement requests (extra credit)
 - A Manager can view all resolved requests from all employees and see which manager resolved it
 - A Manager can view all Employees
 - A Manager can view reimbursement requests from a single Employee 
 
-
-
-**Particle** 
-![](./imgs/video.gif)
 
 
 **State-chart Diagram (Reimbursement Statuses)** 
