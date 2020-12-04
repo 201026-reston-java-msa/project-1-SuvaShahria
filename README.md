@@ -4,8 +4,9 @@
 ## Front End
 The front end was made using html,css, javascript and particle.js
 Particle.js was used to make an interactive background.
+<br />
 **Particle.js** 
-
+<br />
 ![](./imgs/video.gif)
 
 ### Example pages
@@ -43,6 +44,7 @@ Particle.js was used to make an interactive background.
 
 
 **State-chart Diagram (Reimbursement Statuses)** 
+<br />
 ![](./imgs/state-chart.jpg)
 
 **Reimbursement Types**
@@ -50,28 +52,27 @@ Particle.js was used to make an interactive background.
 Employees must select the type of reimbursement as: LODGING, TRAVEL, FOOD, or OTHER.
 
 **Logical Model**
+<br />
 ![](./imgs/logical.jpg)
 
 **Physical Model**
+<br />
 ![](./imgs/physical.jpg)
 
 **Use Case Diagram**
+<br />
 ![](./imgs/use-case.jpg)
 
 **Activity Diagram**
+<br />
 ![](./imgs/activity.jpg)
 
-## Technical Requirements
+## Technologies
 
-* The back-end system shall use **Hibernate** to connect to an **AWS RDS Postgres database**. 
-* The application shall deploy onto a Tomcat Server. 
-* The middle tier shall use Servlet technology for dynamic Web application development. 
-* The front-end view shall use HTML/JavaScript to make an application that can call server-side components. 
-* Passwords shall be encrypted in Java and securely stored in the database. 
-* The middle tier shall follow proper layered architecture, have reasonable (~70%) test coverage of the service layer, and implement log4j for appropriate logging. 
+* The back-end system uses **Hibernate** to connect to an **AWS RDS Postgres database**. 
+* The application deploys onto a Tomcat Server. 
+* The middle tier uses Servlet technology for dynamic Web application development. 
+* The front-end view uses HTML/JavaScript to make an application that can call server-side components. 
+* Passwords are encrypted in Java and securely stored in the database. 
+* The middle tier follows proper layered architecture, have reasonable (~70%) test coverage of the service layer, and implement log4j for appropriate logging. 
 
-**Stretch Goals:** *These will count for extra credit and are entirely optional*
-* Replace HTML/JavaScript with an Angular single page application. (We will learn Angular in Week 5)
-* Users can upload a document or image of their receipt when submitting reimbursements which can stored in the database and reviewed by a financial manager.
-* Application shall be hosted remotely on an EC2.
-* Static files (webpages) shall be hosted on an S3 bucket. 
