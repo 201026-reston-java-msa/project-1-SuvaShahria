@@ -30,6 +30,11 @@
 - A Manager can view reimbursement requests from a single Employee 
 
 
+
+** Particle **
+![](./imgs/video.mp4)
+
+
 **State-chart Diagram (Reimbursement Statuses)** 
 ![](./imgs/state-chart.jpg)
 
